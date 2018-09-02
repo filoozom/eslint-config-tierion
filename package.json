@@ -1,12 +1,12 @@
 {
   "name": "eslint-config-tierion",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "ESLint configuration for Tierion",
-  "main": "dist/eslint-config-tierion.js",
+  "main": "src/index.js",
   "scripts": {
-    "build": "microbundle --strict --target node --format cjs --sourcemap false --output dist",
     "lint": "eslint **/*.js",
-    "test": "npm run lint"
+    "test": "npm run lint",
+    "prepublishOnly": "npm run test"
   },
   "husky": {
     "hooks": {
@@ -33,6 +33,7 @@
   "repository": "filoozom/eslint-config-tierion",
   "dependencies": {
     "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-mocha": "^5.2.0",
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.11.1"
   },
@@ -40,7 +41,6 @@
     "eslint": "^5.5.0",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.2",
-    "microbundle": "^0.6.0",
     "prettier": "^1.14.2"
   },
   "eslintConfig": {
