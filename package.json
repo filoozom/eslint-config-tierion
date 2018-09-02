@@ -1,0 +1,49 @@
+{
+  "name": "eslint-config-tierion",
+  "version": "0.1.0",
+  "description": "ESLint configuration for Tierion",
+  "main": "dist/eslint-config-tierion.js",
+  "scripts": {
+    "build": "microbundle --strict --target node --format cjs --sourcemap false --output dist",
+    "lint": "eslint **/*.js",
+    "test": "npm run lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "tierion"
+  ],
+  "author": "Philippe Schommers <philippe@schommers.be>",
+  "license": "Apache-2.0",
+  "repository": "filoozom/eslint-config-tierion",
+  "dependencies": {
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.11.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.5.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.2",
+    "microbundle": "^0.6.0",
+    "prettier": "^1.14.2"
+  },
+  "eslintConfig": {
+    "extends": "./src/index.js"
+  }
+}
